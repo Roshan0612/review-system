@@ -27,7 +27,7 @@ The API uses Groq's OpenAI-compatible chat completions endpoint and the `qwen/qw
 
 ## Google review page
 
-The Copy & open button copies the final editable text and opens the Google review URL configured in `lib/reviews.ts`. Replace its default search link with the store's official Business Profile review-request link when available. Customers paste and submit the review themselves.
+The Copy & open button copies the final editable text and opens Google's direct Write a review page for The Brand Store. Customers paste and submit the review themselves.
 
 ## Checks
 

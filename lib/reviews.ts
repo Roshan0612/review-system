@@ -11,4 +11,4 @@ export const inputSchema=z.object({selected:z.array(z.enum(options as [string,..
  if(!data.selected.length&&!data.notes)ctx.addIssue({code:'custom',message:'Choose an experience or add a note first.'});
 });
 export function basicDraft(selected:string[],notes:string){return [...selected.map(s=>phrases[s]).filter(Boolean),notes.trim()].filter(Boolean).join(' ');}
-export const googleReviewUrl=process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL||'https://www.google.com/search?q=the+brand+store+virar#lrd=0x3be7ab002e92dcc7:0x6877ddd6e8acce91,3,,,,';
+export const googleReviewUrl='https://search.google.com/local/writereview?placeid=ChIJx9ySLgCr5zsRkc6s6Nbdd2g';

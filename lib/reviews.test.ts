@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { inputSchema, basicDraft, positiveOptions, negativeOptions, options } from './reviews';
+import { inputSchema, basicDraft, googleReviewUrl, positiveOptions, negativeOptions, options } from './reviews';
 import { POST } from '../app/api/review/route';
 import { NextRequest } from 'next/server';
 
@@ -13,6 +13,8 @@ test('twelve choices: ten positive and two negative at the end', () => {
 });
 test('preserves mixed feedback', () =>
   assert.equal(basicDraft(valid.selected, ''), "The quality felt premium. I couldn't find my size."));
+test('links directly to The Brand Store Google review form', () =>
+  assert.equal(googleReviewUrl, 'https://search.google.com/local/writereview?placeid=ChIJx9ySLgCr5zsRkc6s6Nbdd2g'));
 test('accepts six and rejects seven selections', () => {
   assert.equal(inputSchema.safeParse({ ...valid, selected: options.slice(0, 6) }).success, true);
   assert.equal(inputSchema.safeParse({ ...valid, selected: options.slice(0, 7) }).success, false);
